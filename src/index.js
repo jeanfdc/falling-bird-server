@@ -13,10 +13,13 @@ const userRouter = require('./routes/userRouter')
 const server = app.listen(process.env.PORT, () => { console.log(`Connected to PORT: ${process.env.PORT}`) })
 const socketIO = require('socket.io')(server, {
   cors: {
-    origin: "http://localhost:3000"
+    origin: "*"
   }
 })
 
+app.get("/status", (req, res) => {
+ res.send("PDIDDYYYYYYYYYY")
+})
 
 socketIO.on('connection', (socket) => {
   console.log('A new device is connected')
